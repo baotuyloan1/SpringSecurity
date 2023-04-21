@@ -1,0 +1,74 @@
+
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: dev
+
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    password: abcd1234
+    url: jdbc:sqlserver://localhost:1433;databaseName=user_registration;trustServerCertificate=true
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer DEV!!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    password: abcd1234
+    url: jdbc:sqlserver://localhost:1433;databaseName=springdepartment-qa;trustServerCertificate=true
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer QA!!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    password: abcd1234
+    url: jdbc:sqlserver://localhost:1433;databaseName=springdepartment-prod;trustServerCertificate=true
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+welcome:
+  message: Welcome to Daily Code Buffer Product!!
