@@ -1,0 +1,20 @@
+server:
+  port: 9000
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    password: abcd1234
+    url: jdbc:sqlserver://localhost:1433;databaseName=springdepartment;trustServerCertificate=true
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
